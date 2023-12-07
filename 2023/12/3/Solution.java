@@ -1,7 +1,5 @@
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Deque;
-import java.util.ArrayDeque;
 import java.util.Scanner;
 
 class Solution {

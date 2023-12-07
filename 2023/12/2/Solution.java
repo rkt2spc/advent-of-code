@@ -1,7 +1,4 @@
-import java.util.Arrays;
 import java.util.Scanner;
-import java.util.regex.Pattern;
-import java.util.regex.Matcher;
 
 class Solution {
   public static void main(String[] args) {
