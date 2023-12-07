@@ -5,23 +5,23 @@ import java.util.ArrayDeque;
 import java.util.Scanner;
 
 class Solution {
-  private final static int[][] DIRECTIONS = new int[][]{
-    // top
-    {0, -1},
-    // top right
-    {1, -1},
-    // right
-    {1, 0},
-    // bottom right
-    {1, 1},
-    // bottom
-    {0, 1},
-    // bottom left
-    {-1, 1},
-    // left
-    {-1, 0},
-    // top left
-    {-1, -1},
+  private final static int[][] DIRECTIONS = new int[][] {
+      // top
+      { 0, -1 },
+      // top right
+      { 1, -1 },
+      // right
+      { 1, 0 },
+      // bottom right
+      { 1, 1 },
+      // bottom
+      { 0, 1 },
+      // bottom left
+      { -1, 1 },
+      // left
+      { -1, 0 },
+      // top left
+      { -1, -1 },
   };
 
   public static void main(String[] args) {
@@ -49,7 +49,7 @@ class Solution {
 
       for (int j = 0; j < width; ++j) {
         char c = scheme.get(i).get(j);
-        
+
         if (Character.isDigit(c)) {
           num *= 10;
           num += c - '0';
@@ -62,7 +62,7 @@ class Solution {
 
               if (ni < 0 || ni >= height || nj < 0 || nj >= width)
                 continue;
-              
+
               char nc = scheme.get(ni).get(nj);
               if (!Character.isDigit(nc) && nc != '.') {
                 isValidRun = true;
