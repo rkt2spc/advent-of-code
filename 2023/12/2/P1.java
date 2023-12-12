@@ -1,7 +1,10 @@
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.Scanner;
 
-class Solution {
-  public static void main(String[] args) {
+class P1 {
+  public static int solve(InputStream in) {
     int result = 0;
 
     final int MAX_R = 12;
@@ -10,7 +13,7 @@ class Solution {
 
     int gameID = 1;
 
-    Scanner sc = new Scanner(System.in);
+    Scanner sc = new Scanner(in);
     while (sc.hasNextLine()) {
       String line = sc.nextLine();
 
@@ -47,6 +50,12 @@ class Solution {
       ++gameID;
     }
 
-    System.out.println(result);
+    sc.close();
+    return result;
+  }
+
+  public static void main(String[] args) throws FileNotFoundException {
+    InputStream in = args.length > 0 ? new FileInputStream(args[0]) : System.in;
+    System.out.println(solve(in));
   }
 }
