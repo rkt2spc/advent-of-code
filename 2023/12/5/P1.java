@@ -1,30 +1,17 @@
 import java.util.Scanner;
 import java.util.TreeMap;
 import java.util.Arrays;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 
-public class Solution {
-  private static void computeNextValues(long[] values, TreeMap<Long, long[]> tm) {
-    for (int i = 0; i < values.length; ++i) {
-      Long start = tm.floorKey(values[i]);
-      if (start == null)
-        continue;
-
-      long[] entry = tm.get(start);
-
-      if (values[i] <= start + entry[1])
-        values[i] = entry[0] + (values[i] - start);
-    }
-  }
-
-  public static void main(String[] args) {
+public class P1 {
+  public static long solve(InputStream in) {
     Scanner sc = new Scanner(System.in);
 
-    if (!sc.hasNextLine())
-      return;
-
     // Parse seeds one-liner hihi
-    long[] seeds = Arrays.stream(sc.nextLine().substring("seeds: ".length()).trim().split(" "))
-        .mapToLong(Long::parseLong).toArray();
+    long[] seeds = Arrays.stream(sc.nextLine().substring("seeds: ".length()).split(" "))
+      .mapToLong(Long::parseLong).toArray();
 
     // Use tree map to find next range
     // source -> [target, offset]
@@ -54,7 +41,25 @@ public class Solution {
     // Last mile convert
     computeNextValues(seeds, tm);
 
-    System.out.println(Arrays.toString(seeds));
-    System.out.println(Arrays.stream(seeds).min().getAsLong());
+    sc.close();
+    return Arrays.stream(seeds).min().getAsLong();
+  }
+
+  private static void computeNextValues(long[] values, TreeMap<Long, long[]> tm) {
+    for (int i = 0; i < values.length; ++i) {
+      Long start = tm.floorKey(values[i]);
+      if (start == null)
+        continue;
+
+      long[] entry = tm.get(start);
+
+      if (values[i] <= start + entry[1])
+        values[i] = entry[0] + (values[i] - start);
+    }
+  }
+
+  public static void main(String[] args) throws FileNotFoundException {
+    InputStream in = args.length > 0 ? new FileInputStream(args[0]) : System.in;
+    System.out.println(solve(in));
   }
 }
