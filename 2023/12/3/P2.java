@@ -11,22 +11,22 @@ import java.util.HashMap;
 
 public class P2 {
   private final static int[][] DIRECTIONS = new int[][] {
-      // top
-      { 0, -1 },
-      // top right
-      { 1, -1 },
-      // right
-      { 1, 0 },
-      // bottom right
-      { 1, 1 },
-      // bottom
-      { 0, 1 },
-      // bottom left
-      { -1, 1 },
-      // left
-      { -1, 0 },
-      // top left
-      { -1, -1 },
+    // top
+    { 0, -1 },
+    // top right
+    { 1, -1 },
+    // right
+    { 1, 0 },
+    // bottom right
+    { 1, 1 },
+    // bottom
+    { 0, 1 },
+    // bottom left
+    { -1, 1 },
+    // left
+    { -1, 0 },
+    // top left
+    { -1, -1 },
   };
 
   public static int solve(InputStream in) {
