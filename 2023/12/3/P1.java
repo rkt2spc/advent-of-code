@@ -5,7 +5,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-class P1 {
+public class P1 {
   private final static int[][] DIRECTIONS = new int[][] {
       // top
       { 0, -1 },

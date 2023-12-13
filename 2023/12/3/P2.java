@@ -9,7 +9,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.HashMap;
 
-class P2 {
+public class P2 {
   private final static int[][] DIRECTIONS = new int[][] {
       // top
       { 0, -1 },

@@ -3,7 +3,7 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.Scanner;
 
-class P2 {
+public class P2 {
   private static final String[] nums = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
 
   private static int getDigit(String s, int index, boolean reverse) {

@@ -3,7 +3,7 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.Scanner;
 
-class P1 {
+public class P1 {
   public static long solve(InputStream in) {
     long result = 0;
 
