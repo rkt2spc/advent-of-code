@@ -1,8 +1,11 @@
 import java.util.List;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-class Solution {
+class P1 {
   private final static int[][] DIRECTIONS = new int[][] {
       // top
       { 0, -1 },
@@ -22,10 +25,10 @@ class Solution {
       { -1, -1 },
   };
 
-  public static void main(String[] args) {
+  public static int solve(InputStream in) {
     List<List<Character>> scheme = new ArrayList<>();
 
-    Scanner sc = new Scanner(System.in);
+    Scanner sc = new Scanner(in);
     while (sc.hasNextLine()) {
       String line = sc.nextLine();
 
@@ -35,6 +38,7 @@ class Solution {
 
       scheme.add(chars);
     }
+    sc.close();
 
     int result = 0;
 
@@ -72,20 +76,22 @@ class Solution {
           continue;
         }
 
-        if (c == '.') {
-          if (isValidRun)
-            result += num;
+        if (isValidRun)
+          result += num;
 
-          isValidRun = false;
-          num = 0;
-          continue;
-        }
+        isValidRun = false;
+        num = 0;
       }
 
       if (isValidRun)
         result += num;
     }
 
-    System.out.println(result);
+    return result;
+  }
+
+  public static void main(String[] args) throws FileNotFoundException {
+    InputStream in = args.length > 0 ? new FileInputStream(args[0]) : System.in;
+    System.out.println(solve(in));
   }
 }
