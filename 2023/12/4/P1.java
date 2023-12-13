@@ -1,12 +1,15 @@
 import java.util.Scanner;
 import java.util.Set;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.HashSet;
 
-public class Solution {
-  public static void main(String[] args) {
+public class P1 {
+  public static int solve(InputStream in) {
     int result = 0;
 
-    Scanner sc = new Scanner(System.in);
+    Scanner sc = new Scanner(in);
     while (sc.hasNextLine()) {
       String card = sc.nextLine();
 
@@ -28,6 +31,12 @@ public class Solution {
         result += 1 << (matches - 1);
     }
 
-    System.out.println(result);
+    sc.close();
+    return result;
+  }
+
+  public static void main(String[] args) throws FileNotFoundException {
+    InputStream in = args.length > 0 ? new FileInputStream(args[0]) : System.in;
+    System.out.println(solve(in));
   }
 }
